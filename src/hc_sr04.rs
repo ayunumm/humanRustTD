@@ -75,9 +75,9 @@ impl HcSr04 {
 
 /// Continuous distance measurement task with RTT logging via defmt
 pub fn distance_measurement_task() -> ! {
-    let p = hal::pac::Peripherals::take().unwrap();
+    let p = unsafe { hal::pac::Peripherals::steal() };
     let port0 = hal::gpio::p0::Parts::new(p.P0);
-    
+
     let mut sensor = HcSr04::new(port0.p0_14, port0.p0_15);
 
     log_info!("\n=== HC-SR04 Distance Sensor Started ===\n");
@@ -94,7 +94,7 @@ pub fn distance_measurement_task() -> ! {
         );
         
         // Delay ~100ms between measurements
-        for _ in 0..1000000 {
+        for _ in 0..30000 {
             cortex_m::asm::nop();
         }
     }

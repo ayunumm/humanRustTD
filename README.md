@@ -67,4 +67,7 @@ This avoids APPROTECT issues entirely.
 - Rust toolchain (`no_std`, `thumbv7em-none-eabihf`)  
 - `probe-rs` for flashing  
 - Host system (Raspberry Pi 5 or PC)  
-- TouchDesigner for visualization  
+- TouchDesigner for visualization
+
+## Rerated Projects
+rust-sensor-touchdesigner-zero2w: https://github.com/ayunumm/rust-sensor-touchdesigner-zero2w
